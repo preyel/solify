@@ -11,6 +11,9 @@ import UserNotifications
     nonisolated static let backgroundRefreshID = "com.prek.Solify.refresh"
 
     init() {
+        #if DEBUG
+        DebugScenarios.runIfRequested()
+        #endif
         UNUserNotificationCenter.current().delegate = NotificationDelegate.shared
     }
 

@@ -27,5 +27,6 @@ The owner is new to Xcode/iOS: explain steps plainly. They design screens in Fig
 - Build: `xcodebuild -project SunSafe.xcodeproj -scheme MyApp -destination 'generic/platform=iOS Simulator' build`
 - Set the Simulator's GPS with `xcrun simctl location <device> set 33.3062,-111.8413` (Chandler, AZ).
 - Settings has a debug-only "Send Test Notifications" button.
+- Reminder-rule checks: `MyApp/DebugScenarios.swift` (DEBUG only). Run on a spare simulator so the owner's isn't disturbed: `xcrun simctl launch --console-pty <device> com.prek.Solify -runScenarios` prints PASS/FAIL and exits. Add a case there when changing reminder rules.
 - To re-test setup, uninstall the app from the Simulator. Don't write app settings with `simctl spawn … defaults write`; those survive uninstalling.
 - The owner may click in the live Simulator panel at the same time as you.
